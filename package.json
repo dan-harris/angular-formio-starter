@@ -1,0 +1,108 @@
+{
+  "name": "angular-formio-starter",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "prestart": "npm run scripts:env",
+    "start": "ng serve",
+    "start:aot": "ng serve --aot=true",
+    "serve:prod": "serve -s -p 6876 ./dist/browser",
+    "build": "ng build",
+    "build:prod": "ng build --prod",
+    "test": "ng test --watch=false",
+    "lint": "tslint --format stylish --project ./",
+    "lint:vscode": "tslint --format verbose --project ./",
+    "lint:prod": "tslint --format vso --project ./",
+    "lint:styles": "stylelint --syntax=scss",
+    "e2e": "ng e2e --webdriver-update=false",
+    "e2e:webdriver": "webdriver-manager update --versions.chrome=2.36",
+    "commit": "git-cz",
+    "commitmsg": "validate-commit-msg",
+    "stats": "npm run stats:generate && npm run stats:view",
+    "stats:view": "webpack-bundle-analyzer ./dist/browser/stats.json",
+    "stats:generate": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build --prod --stats-json --named-chunks=true",
+    "scripts:env": "ts-node ./scripts/process-env.ts",
+    "precommit": "lint-staged",
+    "pretest": "npm run scripts:env",
+    "prebuild": "npm run scripts:env",
+    "prebuild:prod": "npm run scripts:env",
+    "pree2e": "npm run scripts:env && npm run e2e:webdriver",
+    "prepare": "patch-package",
+    "patch:auth0": "patch-package @ngx-auth/auth0",
+    "patch:angular-mdc": "patch-package @angular-mdc/web"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~7.0.0",
+    "@angular/common": "~7.0.0",
+    "@angular/compiler": "~7.0.0",
+    "@angular/core": "~7.0.0",
+    "@angular/forms": "~7.0.0",
+    "@angular/http": "~7.0.0",
+    "@angular/platform-browser": "~7.0.0",
+    "@angular/platform-browser-dynamic": "~7.0.0",
+    "@angular/router": "~7.0.0",
+    "angular-tslint-rules": "^1.5.0",
+    "core-js": "^2.5.4",
+    "rxjs": "~6.3.3",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.10.0",
+    "@angular/cli": "~7.0.1",
+    "@angular/compiler-cli": "~7.0.0",
+    "@angular/language-service": "~7.0.0",
+    "@types/jasmine": "~2.8.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "codelyzer": "~4.5.0",
+    "commitizen": "^3.0.3",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.1.2",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~3.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~1.1.2",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "lint-staged": "^7.3.0",
+    "patch-package": "^5.1.1",
+    "prettier": "^1.14.3",
+    "protractor": "~5.4.0",
+    "serve": "^10.0.2",
+    "stylelint": "^9.6.0",
+    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-scss": "^3.3.1",
+    "ts-node": "~7.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "~3.1.1",
+    "validate-commit-msg": "^2.14.0",
+    "webpack-bundle-analyzer": "^3.0.3"
+  },
+  "lint-staged": {
+    "*.{json,js}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.scss": [
+      "prettier --write",
+      "stylelint --syntax=scss",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    },
+    "validate-commit-msg": {
+      "types": "conventional-commit-types",
+      "helpMessage": "Use \"npm run commit\" instead, we use conventional-changelog format :) (https://github.com/commitizen/cz-cli)"
+    }
+  }
+}

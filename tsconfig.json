@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@myapp/app/*": ["./src/app/*"],
+      "@myapp/shared/*": ["./src/app/shared/*"],
+      "@myapp/modules/*": ["./src/app/shared-modules/*"],
+      "@myapp/models/*": ["./src/app/shared/models/*"],
+      "@myapp/services/*": ["./src/app/shared/services/*"],
+      "@myapp/env/*": ["./src/environments/*"]
+    },
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom"]
+  },
+  "angularCompilerOptions": {
+    "preserveWhitespaces": false
+  }
+}
