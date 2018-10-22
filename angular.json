@@ -56,7 +56,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-formio-starter:build"
+            "browserTarget": "angular-formio-starter:build",
+            "port": 4568
           },
           "configurations": {
             "production": {

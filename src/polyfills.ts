@@ -77,3 +77,6 @@ import 'zone.js/dist/zone'; // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+// some weird formio global var
+(window as any).global = window;
